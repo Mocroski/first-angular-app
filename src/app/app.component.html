@@ -1,15 +1,12 @@
-<div class="container">
-    <div class="row"></div>
-</div>
-
 
 <h1>Iam in the AppComponent</h1>
-<app-server></app-server>
-<hr>
-<!-- TWO-WAY-BINDING serve para vincular a entrada do usuario com uma variavel -->
-<input type="text" class="form-control" [(ngModel)] = "username"> 
-<!-- Exibe a variavel na tela -->
-<p>{{username}}</p>
-<hr>
- <!-- Esse botao é desativado se a variavel username estiver vazia(PROPERTY BINDING) e o click chama a funcao para limpar a variavel username(EVENT BINDING) -->
-<button [disabled]="username === ''" (click)="resetUsername()">Reset</button>
+
+<button (click)="onClick()">Display</button>
+<p *ngIf="showParagraph">Paragrafo mostrado ou escondido</p>
+
+<h4>Log de cliques no botao</h4>
+<ul>
+    <li *ngFor="let click of buttonClicks; let i = index">
+        {{i}}.{{click}}
+        <span *ngIf="i >= 4" [ngStyle]="{ 'background-color': 'blue' }" [ngClass]="{ 'text-white': true }">New!</span>
+</ul>

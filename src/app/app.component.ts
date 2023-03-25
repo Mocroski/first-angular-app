@@ -7,8 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   username = '';
+  showParagraph: boolean = false;
+  buttonClicks: any[] =[];
+  
 
   resetUsername(){
     this.username = '';
   }
+
+  onClick(){
+    this.showParagraph = !this.showParagraph;//altera o valor da propriedade
+    this.buttonClicks.push(new Date()); //adiiona data a matriz
+  }
+
 }
